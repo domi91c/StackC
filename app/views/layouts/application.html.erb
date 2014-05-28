@@ -83,7 +83,11 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-            <li class="active"><%= link_to "Sign In",  destroy_user_session_path, method: :delete %></li>
+        <% if user_signed_in? %>
+            <li class="active"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li class="active"><%= link_to "Sign In", new_user_session_path %></li>
+        <%end%>
 
         <li class="has-dropdown">
           <a href="#">Browse</a>
@@ -95,7 +99,9 @@
 
       <!-- Left Nav Section -->
       <ul class="left">
-        <li><a href="/">Profile</a></li>
+        <li><a href="/">  <% if user_signed_in? %>
+              Logged in as <strong><%= current_user.email %></strong>.
+          <%end%></a></li>
       </ul>
     </section>
   </nav>
