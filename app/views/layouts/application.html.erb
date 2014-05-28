@@ -63,8 +63,11 @@
     <div class="nav_btn" >
     </div>
     <div class="nav_btn" >
+
     </div>
+
   </div>
+
 </div>
 
 <div class="fixed">
@@ -80,7 +83,7 @@
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-            <li class="active"><%= link_to "Sign Out" %></li>
+            <li class="active"><%= link_to "Sign In",  destroy_user_session_path, method: :delete %></li>
 
         <li class="has-dropdown">
           <a href="#">Browse</a>
@@ -100,21 +103,8 @@
 
 
 
-
-
-
-<% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
-
       <%= yield %>
       <%= yield :scripts %>
-
-
 
 </body>
 

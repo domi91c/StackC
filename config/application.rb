@@ -23,5 +23,14 @@ module School
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
 
+    config.to_prepare do
+	    Devise::SessionsController.layout "application.html.erb"
+	    Devise::RegistrationsController.layout "application.html.erb"
+	    Devise::ConfirmationsController.layout "application.html.erb"
+	    Devise::UnlocksController.layout "application.html.erb"
+	    Devise::PasswordsController.layout "application.html.erb"
+    end
+
+
   end
 end
